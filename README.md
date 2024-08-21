@@ -1,3 +1,5 @@
+⚠ This program is deprecated. I created it some time ago to explore Java GUI functionalities. A NEW VERSION is now available in C++. [Click here to access it](https://github.com/ItalianG0urmet/GourClicker-plus-plus). ⚠
+
 # Autoclicker Java
 
 A simple autoclicker written in Java in just 2 days. This project was created to practice working with GUIs and includes adjustable options, including a mode designed to simulate human clicks.
