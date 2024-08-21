@@ -17,7 +17,6 @@ public class Main {
     public static int msNumber;
     public static boolean toggle;
 
-
     public static void main(String[] args) {
 
         /* Key Lisener */
@@ -29,9 +28,7 @@ public class Main {
             System.exit(1);
         }
 
-
-
-        /* Funzioni iniziali */
+        /* Init Functions */
         JFrame frame = new JFrame();
         frame.setUndecorated(true);
         frame.setSize(400, 300);
@@ -80,12 +77,11 @@ public class Main {
                 sliderValueLabel.setText("" + slider.getValue());
             }
             msNumber = slider.getValue();
-            //System.out.println(msNumber);
         });
         backgroundPanel.add(sliderValueLabel);
 
 
-        /* Creazione del bottone chiusura */
+        /* Create exit button */
         JButton closeButton = createCloseButton();
         closeButton.setBounds(frame.getWidth() - 50, 10, 40, 30);
         backgroundPanel.add(closeButton);
@@ -127,22 +123,18 @@ public class Main {
         JButton closeButton = new JButton("X");
         closeButton.setFont(new Font("Varela Round", Font.BOLD, 20));
         closeButton.setForeground(Color.decode("#C24ADF"));
-        //closeButton.setBackground(new Color(0, 0, 0, 0)); // Colore trasparente
         closeButton.setFocusPainted(false);
         closeButton.setBorderPainted(false);
         closeButton.setContentAreaFilled(false);
         closeButton.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-
         closeButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Runtime.getRuntime().addShutdownHook(new Thread(KeyListenerClick::deregisterHook));
                 System.exit(0);
             }
         });
-
-        // Imposta la dimensione del pulsante in base al testo "X"
         FontMetrics metrics = closeButton.getFontMetrics(closeButton.getFont());
-        int width = metrics.stringWidth("x") + 10; // Aggiungi spazio pr migliorare il clic
+        int width = metrics.stringWidth("x") + 10;
         int height = metrics.getHeight() + 10;
         closeButton.setPreferredSize(new Dimension(width, height));
 

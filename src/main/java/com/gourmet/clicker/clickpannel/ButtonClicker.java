@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 
 public class ButtonClicker extends JButton {
 
-
     public ButtonClicker(String text) {
         super(text);
         setContentAreaFilled(false);
@@ -17,12 +16,16 @@ public class ButtonClicker extends JButton {
 
         addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Main.toggle = !Main.toggle; // Inverti lo stato booleano
-                updateButton(); // Aggiorna l'aspetto del bottone
+                Main.toggle = !Main.toggle;
+                updateButton();
             }
         });
     }
 
+    /**
+     * This function will update the button graphic
+     * when pressed
+     */
     public void updateButton() {
         if (Main.toggle) {
             setText("Toggle ON");
@@ -38,7 +41,7 @@ public class ButtonClicker extends JButton {
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2.setColor(getBackground());
-        g2.fillRoundRect(0, 0, getWidth(), getHeight(), 40, 40); // Aumentato il raggio dell'arco a 40 per un bordo più grande
+        g2.fillRoundRect(0, 0, getWidth(), getHeight(), 40, 40);
         super.paintComponent(g);
         g2.dispose();
     }
@@ -47,8 +50,8 @@ public class ButtonClicker extends JButton {
     protected void paintBorder(Graphics g) {
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g2.setColor(getForeground()); // Colore del bordo
-        g2.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 40, 40); // Aumentato il raggio dell'arco a 40 per un bordo più grande
+        g2.setColor(getForeground());
+        g2.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 40, 40);
         g2.dispose();
     }
 
